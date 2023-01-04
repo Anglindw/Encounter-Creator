@@ -18,7 +18,7 @@ export default class SelectBox extends Component {
     }
 
     handleSubmit(event) {
-        alert('You have chosen:' + this.state.value);
+        alert('You have chosen: ' + this.state.value);
         event.prevenDefault();
 
     }

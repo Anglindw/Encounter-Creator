@@ -1,27 +1,25 @@
-import React, {Component} from "react";
+import React from "react";
+import {useState} from 'react';
 
-export default class RandomMonster extends Component{
-    constructor(){
-        super();
-        this.state = {
-            random: 0
-        };
-        
+const RandomMonster = ({monsters}) => {
+    const [num, setNum] = useState(0);
+
+    function randomon(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    handleClick = (event) => {
-        const min = 0;
-        const max = 313;
-        const rand = min + Math.random() * (max - min);
-        this.setState(() => {return {random: rand}});
 
+    const handleClick = () => {
+        setNum(randomon(0,333));
     };
 
-    render() {
-        console.log(this.props.monsters)
+    return(
+        <div>
+        {monsters.map((monster) => {
+            const {name} = monster
+            
+        })}
+            <button onClick={handleClick}> Generate A Monster! </button>
+        </div>
 
-        const {random} = this.state
-        const {monsters} = this.props
-        const {handleClick} = this  
-    }
-
-}
+    );
+};
